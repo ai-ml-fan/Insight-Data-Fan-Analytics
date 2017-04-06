@@ -80,9 +80,12 @@ As the input file is analysed, the program outputs the top ten resources sorted 
 
 ### Feature 3:
 List the top 10 busiest (or most frequently visited) 60-minute periods 
+Thsi feature makes use of the Python deque as well as Counters and dictionaries. The deque is a bi-directional queue. Each request,based on timestamp is enqueued and the time between the current request and the request at the head of the queue is computed. If the time is atleast 1 hr, then the total reqeusts recieved for the hour is the number of reqeusts on the queue. The top item is then dequeued and the counter for that timeinterval is aggregated to the total items on the queue.  
 
 ### Feature 4: 
 Detect patterns of three failed login attempts from the same IP address over 20 seconds so that all further attempts to the site can be blocked for 5 minutes. Log those possible security breaches.
+
+To implement this feature, used a dictionary failed as well as a Counter to monitor the number of failed requests. The blocked was another boolean dictionary used to mark hosts that were blocked. Both blocked and failed used the same dictionary to monitor the time settings.
 
 
 ### Other Features and optional features
