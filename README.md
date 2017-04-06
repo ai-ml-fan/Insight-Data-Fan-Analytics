@@ -99,14 +99,22 @@ Other enhancements that should be considered,
 ### Repository Directory Structure:
 The directory structure for your repo should look like this:
 
-├── README.md 
+├── README.md
+
 ├── run.sh
+
 ├── src
+
 │   └── process_log.py
+
 ├── log_input
+
 │   └── log.txt
+
 ├── log_output
+
 |   └── hosts.txt
+
 |   └── hours.txt
 |   └── resources.txt
 |   └── blocked.txt
