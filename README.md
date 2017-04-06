@@ -16,10 +16,42 @@ My submission for Insight Data Engineering Test March 30th,2017(03/30/2017)
 
 The challenge was to picture as a backend engineer for a NASA fan website that generates a large amount of Internet traffic data.  The challenge is to perform basic analytics on the server log file, provide useful metrics, and implement basic security measures. 
 The document below elaborates on the features as well as details specific to the implementation as well as any assumptions.
+
+### Program Details :
+Program Name : process_log.py
+Program Type: Python source
+
+Input Arguments : The python file accepts the path of the input log file as an argument although this is not manadatory.
+By default, the code will use ./input/log.txt as input..
+Output Arguments : The python file accepts as arguments, the names of the 4 output files that will be created by the program.
+The files will be generated as follows:
+- the first output will list the 10 most active hosts, 
+- the second output file will contain the 10 top busiest 1-hour periods,
+- the thirs file lists the 10 most requested resource, as determined by number of requests and size of the resource and 
+- lastly the last file lists the log entries flagged as likely threats that should be blocked
+
+The code does not require any mandatory parameters. One or more parameters can be provided as long as they are in order.(the arguments are recognized by position..)
+
+Assumptions : The program does not create directories. It is assumed that the path of the output files exist and execution environment, has the appropriate privileges to write the output to the directories.
+
+### Usage : 
+
+process_log.py followed by one or more arguments in order as shown,
+
+process_log.py [inputfile hostsfile hoursfile resourcesfile blockedfile]
+Eg:  ./src/process_log.py ./log_input/log.txt ./log_output/hosts.txt ./log_output/hours.txt ./log_output/resources.txt ./log_output/blocked.txt
+
+Arg  0 ./src/process_log.py
+Arg  1 ./log_input/log.txt
+Arg  2 ./log_output/hosts.txt
+Arg  3 ./log_output/hours.txt
+Arg  4 ./log_output/resources.txt
+Arg  5 ./log_output/blocked.txt
+
 The implemented features are described below: 
 
 ### Feature 1: 
-List the top 10 most active host/IP addresses that have accessed the site.
+List the top 10 most active host/IP addresses that have accessed the site. 
 
 ### Feature 2: 
 Identify the 10 resources that consume the most bandwidth on the site
