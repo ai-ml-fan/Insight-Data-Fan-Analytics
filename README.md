@@ -85,7 +85,7 @@ List the top 10 busiest (or most frequently visited) 60-minute periods
 Detect patterns of three failed login attempts from the same IP address over 20 seconds so that all further attempts to the site can be blocked for 5 minutes. Log those possible security breaches.
 
 
-### Other considerations and optional features
+### Other Features and optional features
 Other enhancements that should be considered,
 -    a: Read from streaming log. 
 -    b. Added support for multiple input logs. Currently it is possible to add arguments and use the same file to read several input log files.
