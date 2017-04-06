@@ -10,8 +10,8 @@ My submission for Insight Data Engineering Test March 30th,2017(03/30/2017)
 7. [Feature 3](README.md#feature-3)
 8. [Feature 4](README.md#feature-4)
 9. [Other Features](README.md#other-features)
-10. [Repo directory structure](README.md#repo-directory-structure)
-11. [Additional Tests](README.md#additional-tests)
+10.[Repo directory structure](README.md#repo-directory-structure)
+11.[Additional Tests](README.md#additional-tests)
 
 
 
@@ -87,8 +87,7 @@ Detect patterns of three failed login attempts from the same IP address over 20 
 
 To implement this feature, used a dictionary failed as well as a Counter to monitor the number of failed requests. The blocked was another boolean dictionary used to mark hosts that were blocked. Both blocked and failed used the same dictionary to monitor the time settings.
 
-
-### Other Features and optional features
+### Other Features and optional features:
 Other enhancements that should be considered,
 -    a: Read from streaming log. 
 -    b. Added support for multiple input logs. Currently it is possible to add arguments and use the same file to read several input log files.
@@ -97,7 +96,7 @@ Other enhancements that should be considered,
 -    e. Business Proposition: For top used resources, Consider creating login/authentication. Get email/user ids and  identify  value/premium    option for top users
 -   d: Fraud Detection: Look at top valid requests to detect patterns and look for DDOS or DOS style attacks. The most easily executed type of DoS attack is one that is launched from a single origin. In this attack, a single machine somewhere on the Internet issues a barrage of network requests against a targeted victim machine. The requests themselves can take a variety of forms – for example, an  attack might use  HTTP requests against a web server. DDOS is an attack that floods the input channels and from several different sources making it difficult to detect. An authentication for particularly large requests should help mitigate this possibility.
 
-### Repository Directory Structure
+### Repository Directory Structure:
 The directory structure for your repo should look like this:
 
 ├── README.md 
@@ -131,5 +130,5 @@ The directory structure for your repo should look like this:
                 └── resources.txt
                 └── blocked.txt
 
-### Additional Tests
+### Additional Tests:
 
