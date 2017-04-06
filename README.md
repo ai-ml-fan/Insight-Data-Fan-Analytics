@@ -97,6 +97,7 @@ Other enhancements that should be considered,
 -   d: Fraud Detection: Look at top valid requests to detect patterns and look for DDOS or DOS style attacks. The most easily executed type of DoS attack is one that is launched from a single origin. In this attack, a single machine somewhere on the Internet issues a barrage of network requests against a targeted victim machine. The requests themselves can take a variety of forms – for example, an  attack might use  HTTP requests against a web server. DDOS is an attack that floods the input channels and from several different sources making it difficult to detect. An authentication for particularly large requests should help mitigate this possibility.
 
 ### Repository Directory Structure:
+
 The directory structure for your repo should look like this:
 
 ├── README.md
