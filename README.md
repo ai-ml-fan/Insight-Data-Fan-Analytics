@@ -5,11 +5,14 @@ My submission for Insight Data Engineering Test March 30th,2017(03/30/2017)
 2. [Details of Implementation](README.md#details-of-implementation)
 3. [Usage](README.md#usage-summary)
 4. [Structure of Program](README.md#structure-of-program)
-5. [Writing clean, scalable, and well-tested code](README.md#writing-clean-scalable-and-well-tested-code)
-6. [Repo directory structure](README.md#repo-directory-structure)
-7. [Testing your directory structure and output format](README.md#testing-your-directory-structure-and-output-format)
-8. [Instructions to submit your solution](README.md#instructions-to-submit-your-solution)
-9. [FAQ](README.md#faq)
+5. [Feature 1](README.md#feature-1)
+6. [Feature 2](README.md#feature-2)
+7. [Feature 3](README.md#feature-3)
+8. [Feature 4](README.md#feature-4)
+9. [Other Features](README.md#other-features)
+10. [Repo directory structure](README.md#repo-directory-structure)
+11. [Testing your directory structure and output format](README.md#testing-your-directory-structure-and-output-format)
+
 
 
 # Challenge Summary
