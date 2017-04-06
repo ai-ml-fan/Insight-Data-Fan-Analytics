@@ -23,24 +23,30 @@ The document below elaborates on the features as well as details specific to the
 # Details of Implementation
 
 ### Program Details :
+
 Program Name : process_log.py
 
 Program Type: Python source
 
-Input Arguments : The python file accepts the path of the input log file as an argument although this is not manadatory.
-By default, the code will use ./input/log.txt as input..
+Input Arguments : 
+   The python file accepts the path of the input log file as an argument although this is not manadatory.
+   By default, the code will use ./input/log.txt as input.
 
-Output Arguments : The python file accepts as arguments, the names of the 4 output files that will be created by the program.
+Output Arguments : 
+   The python file accepts as arguments, the names of the 4 output files that will be created by the program.
 
-The files will be generated as follows:
-- the first output will list the 10 most active hosts, 
-- the second output file will contain the 10 top busiest 1-hour periods,
-- the thirs file lists the 10 most requested resource, as determined by number of requests and size of the resource and 
-- lastly the last file lists the log entries flagged as likely threats that should be blocked
+   The files will be generated as follows:
+          - the first output will list the 10 most active hosts, 
+          - the second output file will contain the 10 top busiest 1-hour periods,
+          - the third file lists the 10 most requested resource, as determined by number of requests and size of the resource and 
+          - Finally, the last file lists the log entries flagged as likely threats that should be blocked
 
-The code does not require any mandatory parameters. One or more parameters can be provided as long as they are in order.(the arguments are recognized by position..)
+   The code does not require any mandatory parameters. 
+   One or more parameters can be provided as long as they are in order.(the arguments are recognized by position..)
 
-Assumptions : The program does not create directories. It is assumed that the path of the output files exist and execution environment, has the appropriate privileges to write the output to the directories.
+Assumptions : 
+   The program does not create directories. 
+   It is assumed that the path of the output files exist and execution environment, has the appropriate privileges to write the output to the directories.
 
 ### Usage : 
 
@@ -63,16 +69,19 @@ Arg  5 ./log_output/blocked.txt
 
 ### Structure of program
 
-The program builds a Dictionary of dictionaries, which are basically Counters for hosts, timestamps and resources. 
-Each line is tokenized to identify host, timestamp, resource, size of resource etc. 
-The Counters are increased to reflect the new tokens.
-For eg., the resource counter will increase the size of the resource requested to reflect the size of data of the last line. 
+The program opens the input log file and reads line-by-line.As each line is read, each line is tokenized to identify and label 
+different elements such Host, Timestamp, Resource, HTTP StatusCode, Size of resource etc. 
+The program builds a Dictionary of Dictionaries, of Counters for the relevant token elements:
+        Hosts, Timestamps and Resources. 
+        As each line is processed, the Counters for the elements are incremented to reflect the new tokens.
+        For eg., The Resource Counter will increase the size of the resource requested to reflect the size of data of the last line. 
 
-As the file is analysed, the program outputs the top 10 hosts with most requests. 
+
 
 The implemented features are described below: 
 
 ### Feature 1: 
+
 Lists the top 10 most active host/IP addresses that have accessed the site. 
 As the input file is analysed, the program outputs the top 10 hosts with most requests. 
 
@@ -82,13 +91,14 @@ Lists the 10 resources that consume the most bandwidth on the site.
 As the input file is analysed, the program outputs the top ten resources sorted by the total requests and the size of data.
 
 ### Feature 3:
-List the top 10 busiest (or most frequently visited) 60-minute periods 
-Thsi feature makes use of the Python deque as well as Counters and dictionaries. The deque is a bi-directional queue. Each request,based on timestamp is enqueued and the time between the current request and the request at the head of the queue is computed. If the time is atleast 1 hr, then the total reqeusts recieved for the hour is the number of reqeusts on the queue. The top item is then dequeued and the counter for that timeinterval is aggregated to the total items on the queue.  
+
+List the top 10 busiest (or most frequently visited) 60-minute periods.
+This feature makes use of the Python Deque as well as Counters and Dictionaries. Deque is a bi-directional queue collections object. Each request, based on timestamp is enqueued and the time between the current request and the request at the head of the queue is computed. If the time interval is at least 1 hr, then the total requests received for the hour is the number of items on the queue. The top item is then dequeued and the Counter for that timestamp is updated to the total items on the queue.  Items are dequeued and their Counters updated until the time interval between the item at the head of the queue and the currently enqueued item is within an hour.
 
 ### Feature 4: 
 Detect patterns of three failed login attempts from the same IP address over 20 seconds so that all further attempts to the site can be blocked for 5 minutes. Log those possible security breaches.
 
-To implement this feature, used a dictionary failed as well as a Counter to monitor the number of failed requests. The blocked was another boolean dictionary used to mark hosts that were blocked. Both blocked and failed used the same dictionary to monitor the time settings.
+To implement this feature, used the Dictionary data structure, "failed" as well as a Counter collection object to monitor the number of failed requests. The "blocked" was another boolean Dictionary used to flag blocked hosts. Both "blocked" and "failed" used the same Dictionary to monitor the time settings.
 
 ### Other Features and optional features:
 Other enhancements that should be considered,
@@ -102,8 +112,8 @@ Other enhancements that should be considered,
 ### Repository Directory Structure:
 
 The directory structure for your repo should look like this:
- ├── Insight-Data-Fan-Analytics
- 
+
+    ├── Insight-Data-Fan-Analytics
       ├── README.md
       └── insight-03302017
             ├──── run.sh
