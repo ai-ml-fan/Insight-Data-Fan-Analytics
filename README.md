@@ -3,8 +3,8 @@ My submission for Insight Data Engineering Test March 30th,2017(03/30/2017)
 # Table of Contents
 1. [Project Summary](README.md#challenge-summary)
 2. [Details of Implementation](README.md#details-of-implementation)
-3. [Download Data](README.md#download-data)
-4. [Description of Data](README.md#description-of-data)
+3. [Usage](README.md#usage-summary)
+4. [Structure of Program](README.md#structure-of-program)
 5. [Writing clean, scalable, and well-tested code](README.md#writing-clean-scalable-and-well-tested-code)
 6. [Repo directory structure](README.md#repo-directory-structure)
 7. [Testing your directory structure and output format](README.md#testing-your-directory-structure-and-output-format)
@@ -56,6 +56,7 @@ Arg  5 ./log_output/blocked.txt
 
 
 ### Structure of program
+
 The program builds a Dictionary of dictionaries, which are basically Counters for hosts, timestamps and resources. 
 Each line is tokenized to identify host, timestamp, resource, size of resource etc. 
 The Counters are increased to reflect the new tokens.
@@ -66,10 +67,13 @@ As the file is analysed, the program outputs the top 10 hosts with most requests
 The implemented features are described below: 
 
 ### Feature 1: 
-List the top 10 most active host/IP addresses that have accessed the site. 
-As the file is analysed, the program outputs the top 10 hosts with most requests. 
+Lists the top 10 most active host/IP addresses that have accessed the site. 
+As the input file is analysed, the program outputs the top 10 hosts with most requests. 
+
 ### Feature 2: 
-Identify the 10 resources that consume the most bandwidth on the site
+
+Lists the 10 resources that consume the most bandwidth on the site.
+As the input file is analysed, the program outputs the top ten resources sorted by the total requests and the size of data.
 
 ### Feature 3:
 List the top 10 busiest (or most frequently visited) 60-minute periods 
