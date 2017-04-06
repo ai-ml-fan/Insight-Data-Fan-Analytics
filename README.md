@@ -101,28 +101,27 @@ Other enhancements that should be considered,
 The directory structure for your repo should look like this:
 
 ├── README.md
+└── insight-03302017
+     ├──── run.sh
+     ├──  src
 
-├── run.sh
+     │    └── process_log.py
 
-├── src
+    ├── log_input
 
-│   └── process_log.py
+    │     └── log.txt
 
-├── log_input
+    ├── log_output
 
-│   └── log.txt
+    |   └── hosts.txt
 
-├── log_output
+    |   └── hours.txt
 
-|   └── hosts.txt
+    |   └── resources.txt
 
-|   └── hours.txt
+    |   └── blocked.txt
 
-|   └── resources.txt
-
-|   └── blocked.txt
-
-├── insight_testsuite
+ ├── insight_testsuite
 
     └── run_tests.sh
     
