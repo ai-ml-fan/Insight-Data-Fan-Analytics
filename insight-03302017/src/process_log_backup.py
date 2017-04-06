@@ -172,8 +172,14 @@ class WebLogReader():
     
     def most_active_1hrperiods(self,count=10):
         return self.trkr.max_active(count)
+
+    '''analyse is the power horse that reads the log file and calls helper functions'''
+    '''initially analyse called parse and  update functions to tokenize the lines.'''
+    '''Now the threat detection is handled right in analyse so as to expedite blockedoutput'''
     
     def analyse(self,infile):
+        
+        '''Inner methods that are used in this method.'''
         '''Clear Blocked'''
         def _clearblock(self):
             self.blocked[host] = False
@@ -263,57 +269,59 @@ class WebLogReader():
                 self._update(**self._parse(line))                
             
 try :
-    '''Simple method to retrieve all arguments'''
-    id=0
-    for arg in sys.argv:
-        print("Arg ",id,arg)
-        id += 1
-    args = len(sys.argv)
-
-    
-    
     '''This is the main start of the program'''
     '''Read the file and create host and resource dictionaries'''
-    path = '../log_input/'   
-    #path = './log_input/'   
-    infile= path+"log.txt" if args < 2 else sys.argv[1]
-    
-    outpath = '../log_output/'
-    #outpath = './log_output/'
-    writeblockedtofile = outpath + "blocked.txt" if args < 6 else sys.argv[5] 
-       
-    hostpath=outpath+"hosts.txt" if args < 3 else sys.argv[2]
-    hrspath=outpath+"hours.txt" if args < 4 else sys.argv[3]
-    respath=outpath+"resources.txt" if args < 5 else sys.argv[4]
-
-    print("(Input Log File to be read:",infile, ")")
-    print("(O/P Hosts file :",hostpath,")")
-    print("(O/P Hours file:",hrspath,")")
-    print("(O/P Resources file:",respath,")")
-    print("(Output Blocked file:",writeblockedtofile,")")
-
-    ''' Start of main'''
-    '''Create a WebLogReader'''
-    '''Analyse the input file'''
-    
-    reader = WebLogReader(writeblockedtofile)
-    reader.analyse(infile)
-    reader.complete()
-
-    '''Now List the top 10 most active host/IP addresses that have'''
-    '''accessed the site.'''   
-    with open(hostpath, 'w') as out:
-        for key,val in reader.most_accesses_by(10):
-            out.write(key+','+str(val)+'\n')
+    if __name__ == '__main__':
+        '''Simple method to retrieve all arguments'''
+        id=0
+        for arg in sys.argv:
+            print("Arg ",id,arg)
+            id += 1
+        args = len(sys.argv)
         
-    '''Identify the top 10 resources on the site that consume the most bandwidth.'''
-    with open(respath, 'w') as res:
-        for key,val in reader.most_accessedlarge_resources(10):
-            res.write(key+'\n')
-       
-    with open(hrspath, 'w') as hrs:
-        for key,val in reader.most_active_1hrperiods(10):
-            hrs.write(key+','+str(val)+'\n')
+        #Hardcoding couple default paths for log files
+        #Nothin fancy- just switch or change as required
+        path = '../log_input/'   
+        #path = './log_input/'   
+        infile= path+"log.txt" if args < 2 else sys.argv[1]
+
+        #Hardcoding a couple default paths for output files
+        outpath = '../log_output/'
+        #outpath = './log_output/'
+        writeblockedtofile = outpath + "blocked.txt" if args < 6 else sys.argv[5] 
+           
+        hostpath=outpath+"hosts.txt" if args < 3 else sys.argv[2]
+        hrspath=outpath+"hours.txt" if args < 4 else sys.argv[3]
+        respath=outpath+"resources.txt" if args < 5 else sys.argv[4]
+
+        print("(Input Log File to be read:",infile, ")")
+        print("(O/P Hosts file :",hostpath,")")
+        print("(O/P Hours file:",hrspath,")")
+        print("(O/P Resources file:",respath,")")
+        print("(Output Blocked file:",writeblockedtofile,")")
+
+        ''' Start of main'''
+        '''Create a WebLogReader'''
+        '''Analyse the input file'''
+        
+        reader = WebLogReader(writeblockedtofile)
+        reader.analyse(infile)
+        reader.complete()
+
+        '''Now List the top 10 most active host/IP addresses that have'''
+        '''accessed the site.'''   
+        with open(hostpath, 'w') as out:
+            for key,val in reader.most_accesses_by(10):
+                out.write(key+','+str(val)+'\n')
+            
+        '''Identify the top 10 resources on the site that consume the most bandwidth.'''
+        with open(respath, 'w') as res:
+            for key,val in reader.most_accessedlarge_resources(10):
+                res.write(key+'\n')
+           
+        with open(hrspath, 'w') as hrs:
+            for key,val in reader.most_active_1hrperiods(10):
+                hrs.write(key+','+str(val)+'\n')
             
 #TODO: ENHANCE LOGGING TO TRACK THE OFFENDING LINE AND POSSIBLE STACKTRACE          
 except(ValueError, TypeError, NameError) as err:    
