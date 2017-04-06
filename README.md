@@ -117,27 +117,49 @@ The directory structure for your repo should look like this:
 |   └── hosts.txt
 
 |   └── hours.txt
+
 |   └── resources.txt
+
 |   └── blocked.txt
+
 ├── insight_testsuite
+
     └── run_tests.sh
+    
     └── tests
+    
         └── test_features
+        
         |   ├── log_input
+        
         |   │   └── log.txt
+        
         |   |__ log_output
+        
         |   │   └── hosts.txt
+        
         |   │   └── hours.txt
+        
         |   │   └── resources.txt
+        
         |   │   └── blocked.txt
+        
         ├── your-own-test
+        
             ├── log_input
+            
             │   └── your-own-log.txt
+            
             |__ log_output
+            
                 └── hosts.txt
+                
                 └── hours.txt
+                
                 └── resources.txt
+                
                 └── blocked.txt
+                
 
 ### Additional Tests:
 
