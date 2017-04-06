@@ -24,11 +24,14 @@ The document below elaborates on the features as well as details specific to the
 
 ### Program Details :
 Program Name : process_log.py
+
 Program Type: Python source
 
 Input Arguments : The python file accepts the path of the input log file as an argument although this is not manadatory.
 By default, the code will use ./input/log.txt as input..
+
 Output Arguments : The python file accepts as arguments, the names of the 4 output files that will be created by the program.
+
 The files will be generated as follows:
 - the first output will list the 10 most active hosts, 
 - the second output file will contain the 10 top busiest 1-hour periods,
