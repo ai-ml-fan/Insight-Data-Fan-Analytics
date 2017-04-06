@@ -99,66 +99,46 @@ Other enhancements that should be considered,
 ### Repository Directory Structure:
 
 The directory structure for your repo should look like this:
-
-├── README.md
-└── insight-03302017
-     ├──── run.sh
-     ├──  src
-
-     │    └── process_log.py
-
-    ├── log_input
-
-    │     └── log.txt
-
-    ├── log_output
-
-    |   └── hosts.txt
-
-    |   └── hours.txt
-
-    |   └── resources.txt
-
-    |   └── blocked.txt
-
- ├── insight_testsuite
-
-    └── run_tests.sh
-    
-    └── tests
-    
-        └── test_features
-        
-        |   ├── log_input
-        
-        |   │   └── log.txt
-        
-        |   |__ log_output
-        
-        |   │   └── hosts.txt
-        
-        |   │   └── hours.txt
-        
-        |   │   └── resources.txt
-        
-        |   │   └── blocked.txt
-        
-        ├── your-own-test
-        
+ ├── Insight-Data-Fan-Analytics
+ 
+      ├── README.md
+      └── insight-03302017
+            ├──── run.sh
+            ├──  src
+            │    └── process_log.py
             ├── log_input
-            
-            │   └── your-own-log.txt
-            
-            |__ log_output
-            
-                └── hosts.txt
-                
-                └── hours.txt
-                
-                └── resources.txt
-                
-                └── blocked.txt
+            │     └── log.txt
+            ├── log_output
+            |   └── hosts.txt
+            |   └── hours.txt
+            |   └── resources.txt
+            |   └── blocked.txt
+            ├── insight_testsuite
+                └── run_tests.sh
+                └── tests
+                    └── test_features
+                    |   ├── log_input
+                    |   │   └── log.txt
+                    |   |__ log_output    
+                    |   │   └── hosts.txt
+                    |   │   └── hours.txt
+                    |   │   └── resources.txt
+                    |   │   └── blocked.txt
+                    ├── your-own-test
+                        ├── log_input
+                        │   └── your-own-log.txt
+                        |__ log_output
+                            └── hosts.txt
+                            └── hours.txt
+                            └── resources.txt
+                            └── blocked.txt
                 
 
 ### Additional Tests:
+
+Added additional tests in the your-own-test location to include the following test cases:
+- 1. Invalid characters such as '"' or other characters in the resource requested
+- 2. Added tests to test for requests coming in during the blocked interval, wiht reqeust code of 200
+- 3. Added tests to test for hourly intervals by creating requests that were 1 or 2 hours apart
+- 4. Added tests to include resources that were big and also requested numerous times
 
