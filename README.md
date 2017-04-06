@@ -10,8 +10,8 @@ My submission for Insight Data Engineering Test March 30th,2017(03/30/2017)
 7. [Feature 3](README.md#feature-3)
 8. [Feature 4](README.md#feature-4)
 9. [Other Features](README.md#other-features)
-10.[Repo directory structure](README.md#repo-directory-structure)
-11.[Additional Tests](README.md#additional-tests)
+10. [Repo directory structure](README.md#repo-directory-structure)
+11. [Additional Tests](README.md#additional-tests)
 
 
 
