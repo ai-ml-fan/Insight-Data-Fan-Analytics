@@ -42,13 +42,18 @@ process_log.py followed by one or more arguments in order as shown,
 
 process_log.py [inputfile hostsfile hoursfile resourcesfile blockedfile]
 Eg:  ./src/process_log.py ./log_input/log.txt ./log_output/hosts.txt ./log_output/hours.txt ./log_output/resources.txt ./log_output/blocked.txt
-
 Arg  0 ./src/process_log.py
+
 Arg  1 ./log_input/log.txt
+
 Arg  2 ./log_output/hosts.txt
+
 Arg  3 ./log_output/hours.txt
+
 Arg  4 ./log_output/resources.txt
+
 Arg  5 ./log_output/blocked.txt
+
 
 ### Structure of program
 The program builds a Dictionary of dictionaries, which are basically Counters for hosts, timestamps and resources. 
